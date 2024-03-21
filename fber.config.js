@@ -25,6 +25,7 @@ module.exports = {
       'vue': 'Vue',
       'pinia': 'Pinia',
       'vue-demi': 'vueDemi',
+      'vue-router': 'vueRouter',
     },
     htmlExternals: [
       {
@@ -41,6 +42,11 @@ module.exports = {
         module: 'pinia',
         entry: 'https://cdnjs.cloudflare.com/ajax/libs/pinia/2.1.7/pinia.iife.js',
         global: 'Pinia',
+      },
+      {
+        module: 'vue-router',
+        entry: 'https://unpkg.com/vue-router@4.3.0/dist/vue-router.global.js',
+        global: 'VueRouter',
       },
     ],
   },

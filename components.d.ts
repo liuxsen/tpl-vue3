@@ -9,6 +9,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     Child: typeof import('./src/components/Child/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     Parent: typeof import('./src/components/Parent/index.vue')['default']
     Remote: typeof import('./src/components/Remote/index.vue')['default']
   }
