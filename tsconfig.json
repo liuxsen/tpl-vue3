@@ -20,7 +20,8 @@
     "stripInternal": true,
     "noUnusedLocals": false, // 不检查未使用的变量
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue",
     "components/**/*.ts",

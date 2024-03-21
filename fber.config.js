@@ -24,8 +24,9 @@ module.exports = {
     externals: {
       'vue': 'Vue',
       'pinia': 'Pinia',
-      'vue-demi': 'vueDemi',
-      'vue-router': 'vueRouter',
+      'vue-demi': 'VueDemi',
+      'vue-router': 'VueRouter',
+      'element-plus': 'ElementPlus',
     },
     htmlExternals: [
       {
@@ -36,7 +37,7 @@ module.exports = {
       {
         module: 'vue-demi',
         entry: 'https://cdn.jsdelivr.net/npm/vue-demi@0.14.7/lib/index.iife.min.js',
-        global: 'vueDemi',
+        global: 'VueDemi',
       },
       {
         module: 'pinia',
@@ -47,6 +48,11 @@ module.exports = {
         module: 'vue-router',
         entry: 'https://unpkg.com/vue-router@4.3.0/dist/vue-router.global.js',
         global: 'VueRouter',
+      },
+      {
+        module: 'element-plus',
+        entry: 'https://unpkg.com/element-plus@2.6.1/dist/index.full.js',
+        global: 'ElementPlus',
       },
     ],
   },
