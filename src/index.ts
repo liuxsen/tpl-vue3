@@ -1,10 +1,11 @@
-import { createApp } from 'vue'
+import * as Vue from 'vue'
 import App from './App.vue'
+import pinia from './store'
 
-const app = createApp(App)
+const app = Vue.createApp(App)
+app.use(pinia)
 
-function myAdd() {
-}
+// requirejs注入
+define('vue', [], () => Vue)
+
 app.mount('#root')
-
-export default { myAdd }

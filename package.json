@@ -1,5 +1,5 @@
 {
-  "name": "tpl_vue3_project",
+  "name": "tpl_vue3",
   "version": "1.0.0",
   "engines": {
     "node": "16.20.2",
@@ -8,11 +8,11 @@
   "license": "ISC",
   "description": "前端 builder 项目",
   "author": "",
-  "main": "dist/assets/adsf.cjs.js",
+  "main": "dist/assets/aaa.cjs.js",
   "scripts": {
     "dev": "fber dev",
-    "build": "fber build",
-    "bundle": "fber bundle",
+    "lib": "fber lib",
+    "app": "fber app",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install",
@@ -32,16 +32,17 @@
     }
   },
   "dependencies": {
+    "element-plus": "2.6.1",
+    "pinia": "^2.1.7",
     "vue": "3.4.21"
   },
   "devDependencies": {
-    "@types/react": "18.2.60",
-    "@types/react-dom": "18.2.19",
-    "typescript": "5.3.3",
-    "fber": "0.0.3",
     "@antfu/eslint-config": "0.43.1",
     "@commitlint/cli": "~17.5.1",
     "@commitlint/config-conventional": "~17.4.4",
+    "@types/react": "18.2.60",
+    "@types/react-dom": "18.2.19",
+    "@types/requirejs": "^2.1.37",
     "chalk": "4.1.1",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^7.0.0",
@@ -49,15 +50,17 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "fber": "0.0.3",
     "husky": "^8.0.3",
-    "lint-staged": "13.3.0"
+    "lint-staged": "13.3.0",
+    "typescript": "5.3.3"
   },
   "files": [
-    "dist/assets/adsf.umd.js",
-    "dist/assets/adsf.iife.js",
-    "dist/assets/adsf.cjs.js",
-    "dist/assets/adsf.es.js"
+    "dist/assets/aaa.umd.js",
+    "dist/assets/aaa.iife.js",
+    "dist/assets/aaa.cjs.js",
+    "dist/assets/aaa.es.js"
   ],
-  "module": "dist/assets/adsf.umd.js",
+  "module": "dist/assets/aaa.umd.js",
   "types": "dist/assets/types/index.d.ts"
 }
