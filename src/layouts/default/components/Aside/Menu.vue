@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useMenuStore } from '../../../../store/menu'
 import AppMenuItem from './AppMenuItem.vue'
+import { useMenuStore } from '~/store/menu'
 
 const menuStore = useMenuStore()
 const activeIndex = ref('8')

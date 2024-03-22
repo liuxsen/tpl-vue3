@@ -34,14 +34,15 @@
   "dependencies": {
     "element-plus": "2.4",
     "pinia": "^2.1.7",
+    "unocss": "0.58.6",
     "vue": "3.4.21",
-    "vue-router": "4",
-    "unocss": "0.58.6"
+    "vue-router": "4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.43.1",
     "@commitlint/cli": "~17.5.1",
     "@commitlint/config-conventional": "~17.4.4",
+    "@types/node": "^20.11.30",
     "@types/react": "18.2.60",
     "@types/react-dom": "18.2.19",
     "@types/requirejs": "^2.1.37",

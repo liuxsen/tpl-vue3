@@ -1,5 +1,9 @@
 <script setup>
-import DefaultLayout from './layouts/default/index.vue'
+import { defineAsyncComponent } from 'vue'
+
+const DefaultLayout = defineAsyncComponent(() =>
+  import('~layouts/default/index.vue'),
+)
 </script>
 
 <template>
