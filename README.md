@@ -100,6 +100,31 @@ ts
 
 - 请不要随意使用any
 
+### 新建一个store
+
+1. 在src/store 目录下，按照模块新建store，如user为一个模块，菜单为一个模块；保持模块职责清晰，不要混用
+2. 使用响应数据的方式新建store；默认返回一个对象，包裹响应对象 如下：
+
+```js
+export const useUserInfo = defineStore('useUserInfo', () => {
+  const count = ref(0)
+  const name = ref('Eduardo')
+  const doubleCount = computed(() => count.value * 2)
+  function increment() {
+    count.value++
+  }
+
+  return { count, name, doubleCount, increment }
+})
+```
+
+### 路由
+
+路由使用小写定义
+
+- /user
+- /user-info
+
 ### api
 
 ### changelog
