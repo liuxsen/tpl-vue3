@@ -23,7 +23,7 @@ export default {
   </template>
   <!-- 如果有children -->
   <template v-else-if="(menu as MenuItem)?.children && (menu as any).children.length > 0">
-    <el-sub-menu>
+    <el-sub-menu :index="(menu as MenuItem).id">
       <template #title>
         {{ (menu as MenuItem).title }}
       </template>

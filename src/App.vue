@@ -3,7 +3,7 @@ import DefaultLayout from './layouts/default/index.vue'
 </script>
 
 <template>
-  <div>
+  <Suspense>
     <DefaultLayout />
-  </div>
+  </Suspense>
 </template>
