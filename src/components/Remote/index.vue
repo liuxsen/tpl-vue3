@@ -8,6 +8,7 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
 })
+
 const { js, css } = toRefs(props)
 
 const com = ref()

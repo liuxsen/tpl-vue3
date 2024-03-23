@@ -9,7 +9,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to, _from) => {
   // 如果没有注册过路由
   if (!router.hasRoute(to.path)) {
     // 前端folder/业务模块/名称/动作

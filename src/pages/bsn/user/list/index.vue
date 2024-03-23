@@ -1,5 +1,18 @@
+<script lang="ts" setup>
+import { onMounted } from 'vue'
+import { getPetById } from '~/api/pet'
+
+onMounted(() => {
+  getPetById({ petId: 1 })
+})
+</script>
+
+<script lang="ts">
+export default {
+  name: 'BsnUserList',
+}
+</script>
+
 <template>
-  <div style="height: 3000px;">
-    user-list
-  </div>
+  <T name="bb" />
 </template>
