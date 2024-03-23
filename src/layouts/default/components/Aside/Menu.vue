@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import AppMenuItem from './AppMenuItem.vue'
 import { useMenuStore } from '~/store/menu'
 
-const menuStore = useMenuStore()
-const activeIndex = ref('8')
+const { menuList, activeMenu } = storeToRefs(useMenuStore())
 </script>
 
 <script lang="ts">
@@ -14,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <el-menu :default-active="activeIndex">
-    <AppMenuItem :menu="menuStore.menu" />
+  <el-menu :default-active="activeMenu.id">
+    <AppMenuItem :menu="menuList" />
   </el-menu>
 </template>

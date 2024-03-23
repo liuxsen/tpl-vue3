@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES5", // 编译成es5
+    "target": "ES2015", // 编译成es5
     "useDefineForClassFields": true,
     "module": "NodeNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],

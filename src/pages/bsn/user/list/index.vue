@@ -14,5 +14,5 @@ export default {
 </script>
 
 <template>
-  <T name="bb" />
+  <div />
 </template>

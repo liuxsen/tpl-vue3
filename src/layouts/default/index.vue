@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
 import Footer from './components/Footer.vue'
 import AppAside from './components/Aside/Aside.vue'
+
+const BreadCrumb = defineAsyncComponent(() => import('~/layouts/default/components/BreadCrumb/index.vue'))
 </script>
 
 <template>
@@ -9,7 +12,7 @@ import AppAside from './components/Aside/Aside.vue'
       <AppAside />
       <ElContainer>
         <ElHeader class="header">
-          Header
+          <BreadCrumb />
         </ElHeader>
         <el-main class="content-box">
           <ElScrollbar>

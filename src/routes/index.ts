@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { useCurrentRoute } from '~/store/menu/currentRoute'
 
 const routes = [
   { path: '/', redirect: '/common/home/index' },
@@ -10,13 +11,12 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, _from) => {
+  const currentRouteStore = useCurrentRoute()
+  currentRouteStore.setCurrentRoutePath(to.path)
+
   // 如果没有注册过路由
   if (!router.hasRoute(to.path)) {
     // 前端folder/业务模块/名称/动作
-    // /home => home
-    // /common/home => common home
-    // /common/components/icon => common components icon
-    // /common/components/x/y => common components x y
     const [_, x, y, z] = to.path.split('/')
     router.addRoute({
       component: () => import(`../pages/${x}/${y}/${z}/index.vue`),
