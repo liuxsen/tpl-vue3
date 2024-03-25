@@ -14,7 +14,7 @@ export interface MenuItem {
   children?: MenuItem[]
 }
 
-export type AppMenuMode = 'normal' | 'sample' // normal 拆分第一层级路由 sample 不拆分第一层级路由
+export type AppMenuMode = 'vertical' | 'horizontal' // normal 拆分第一层级路由 horizontal 不拆分第一层级路由
 
 export const useMenuStore = defineStore('useMenuStore', () => {
   const menuData = ref<MenuItem[]>([
@@ -85,8 +85,7 @@ export const useMenuStore = defineStore('useMenuStore', () => {
   )
 
   const { currentRoutePath } = storeToRefs(useCurrentRoute())
-  const mode = ref<AppMenuMode>('normal')
-  const currentTopMenu = ref<MenuItem>()
+  const currentTopMenu = ref<MenuItem | null>()
   const menuList = computed(() => {
     if (currentTopMenu.value) {
       return currentTopMenu.value.children
@@ -96,12 +95,23 @@ export const useMenuStore = defineStore('useMenuStore', () => {
     }
   })
 
+  const mode = ref<AppMenuMode>('vertical')
+  const setMode = (val: AppMenuMode) => {
+    mode.value = val
+    if (val === 'horizontal') {
+      currentTopMenu.value = null
+    }
+  }
+
   watch(currentRoutePath, () => {
-    if (currentRoutePath && menuData.value.length && mode.value === 'normal') {
+    if (currentRoutePath && menuData.value.length && mode.value === 'vertical') {
       const arr = findParentMenus(menuData.value, currentRoutePath.value!)
       if (arr.length > 0) {
         currentTopMenu.value = arr[0]
       }
+    }
+    else if (mode.value === 'horizontal') {
+      currentTopMenu.value = null
     }
   }, {
     immediate: true,
@@ -137,6 +147,9 @@ export const useMenuStore = defineStore('useMenuStore', () => {
     const len = breadList.value.length
     return breadList.value[len - 1]
   })
+  const activeTopMenu = computed(() => {
+    return breadList.value[0]
+  })
 
   return {
     menu: menuData,
@@ -144,6 +157,9 @@ export const useMenuStore = defineStore('useMenuStore', () => {
     menuList,
     breadList,
     activeMenu,
+    activeTopMenu,
     getFirstMenuPath,
+    mode,
+    setMode,
   }
 })

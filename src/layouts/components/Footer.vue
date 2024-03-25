@@ -9,5 +9,6 @@
     height: var(--app-footer-height);
     background-color: var(--app-panel-color);
     color: var(--app-font-label-color);
+    padding: var(--app-padding);
   }
 </style>

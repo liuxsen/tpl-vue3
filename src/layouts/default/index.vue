@@ -1,18 +1,37 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
-import Footer from './components/Footer.vue'
-import AppAside from './components/Aside/Aside.vue'
+import Footer from '~/layouts/components/Footer.vue'
+import Aside from '~/layouts/components/Aside.vue'
+import Menu from '~/layouts/components/Menu.vue'
 
-const BreadCrumb = defineAsyncComponent(() => import('~/layouts/default/components/BreadCrumb/index.vue'))
+const BreadCrumb = defineAsyncComponent(() => import('~/layouts/components/BreadCrumb/index.vue'))
 </script>
 
 <template>
-  <div class="layout default">
-    <ElContainer>
+  <div class="layout default flex">
+    <div class="flex left">
+      <el-scrollbar class="full-h aside-box">
+        <Aside />
+      </el-scrollbar>
+      <el-scrollbar class="full-h menu-left">
+        <Menu />
+      </el-scrollbar>
+    </div>
+    <div class="right">
+      <div class="header">
+        <BreadCrumb />
+      </div>
+      <el-scrollbar class="content">
+        <router-view />
+      </el-scrollbar>
+      <Footer />
+    </div>
+
+    <!-- <ElContainer>
       <AppAside />
       <ElContainer>
         <ElHeader class="header">
-          <BreadCrumb />
+          <BreadCrumb v-if="showBread" />
         </ElHeader>
         <el-main class="content-box">
           <ElScrollbar>
@@ -23,45 +42,38 @@ const BreadCrumb = defineAsyncComponent(() => import('~/layouts/default/componen
         </el-main>
         <Footer />
       </ElContainer>
-    </ElContainer>
+    </ElContainer> -->
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 .layout.default {
-  font-size: var(--app-font-size);
   height: var(--app-full-height);
   background-color: var(--app-body-background);
+  .left, .right, .full-h {
+    height: var(--app-full-height);
+  }
+  .full-h {
+    background-color: var(--app-panel-color);
+  }
+  .aside-box {
+    background-color: var(--app-aside-background);
+    color: var(--app-);
+  }
+  .right {
+    flex: 1;
+  }
   .header {
     height: var(--app-header-height);
     border-bottom: 1px solid var(--app-border-color);
     background-color: var(--app-panel-color);
   }
-  .content-box {
+  .content {
     height: var(--app-content-box-height);
-    padding-right: 0px;
-    .content-box-inner {
-      padding-right: var(--app-content-box-padding);
-    }
+    padding: var(--app-content-box-padding);
   }
-
-  .aside-left {
-    background-color: var(--app-aside-background);
-    color: var(--app-aside-color);
-    width: var(--app-aside-width);
-  }
-  .aside-menu {
-    width: var(--app-aside-menu-width);
+  .menu-left {
     border-right: 1px solid var(--app-border-color);
-    .app-aside-menu-scroll-bar {
-      height: var(--app-aside-menu-scroll-bar-height);
-      background-color: var(--app-aside-menu-scroll-bar-color);
-      padding: var(--app-aside-menu-scroll-bar-padding);
-      box-sizing: border-box;
-      .el-menu {
-        border-right: 0;
-      }
-    }
   }
 }
 </style>

@@ -1,16 +1,26 @@
 .app {
-  --el-color-primary: #003261;
-  // 设置hover颜色
-  --el-color-primary-light-3: #255b8f;
-  --el-color-success: #21ba45;
-  --el-color-warning: #f2711c;
-  --el-color-danger: #db2828;
-  --el-color-error: #db2828;
-  --el-color-info: #42b8dd;
-  // 设置hover颜色
-  --el-color-info-light-3: #65c1dd;
+  // ============================element-plus-colors=================================
+  --el-color-primary: var(--app-primary-color);
+  --el-color-primary-light-9: var(--app-primary-color-light-3);
 
-}
-.dark .app {
-  --el-color-primary: #cbe6ff;
+  --el-color-success: var(--app-success-color);
+  --el-color-warning: var(--app-warning-color);
+  --el-color-danger: var(--app-danger-color);
+  --el-color-error: var(--app-error-color);
+  --el-color-info: var(--app-info-color);
+  
+  --el-color-primary: var(--app-primary-color);
+  --el-menu-bg-color: var(--app-bg-color-1);
+  --el-menu-text-color: var(--app-text-color-1);
+  --el-menu-hover-bg-color: var(--app-primary-color-light-3);
+  --el-menu-hover-text-color: var(--app-text-color-1);
+  
+  --el-text-color-primary: var(--app-text-color-1);
+
+  --el-fill-color-blank: var(--app-bg-color-2);
+  --el-bg-color-overlay: var(--app-bg-color-2);
+  --el-text-color-regular: var(--app-text-color-1);
+  --el-fill-color-light: var(--app-text-color-2);
+  --el-text-color-secondary: var(--app-text-color-2);
+
 }

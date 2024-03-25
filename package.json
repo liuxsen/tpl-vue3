@@ -35,7 +35,7 @@
   "dependencies": {
     "@umijs/openapi": "^1.11.1",
     "axios": "^1.6.8",
-    "element-plus": "2.4",
+    "element-plus": "2.6.2",
     "pinia": "^2.1.7",
     "unocss": "0.58.6",
     "vue": "3.4.21",

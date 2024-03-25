@@ -1,43 +1,123 @@
-.app {
-  // common
-  --app-border-color: var(--el-border-color-light);
-  // body
-  --app-body-background: #f6f8f9;
-
-  --app-radius: 4px;
-
-  // panel
-  --app-panel-color: white;
-  --app-panel-padding: 20px;
-
-  // header
-  --app-header-height: 60px;
-  
-  // aside
-  --app-aside-background: #282c34;
-  --app-aside-color: var(--el-color-white);
-  --app-aside-width: 64px;
-  
-  // aside-menu
-  --app-aside-menu-width: 220px;
-  --app-aside-menu-scroll-bar-height: var(--app-full-height);
-  --app-aside-menu-scroll-bar-color: var(--app-panel-color);
-  --app-aside-menu-scroll-bar-padding: 10px;
-  
-  // height
+:root {
+  // ============================height=================================
   --app-full-height: 100vh;
   --app-footer-height: 50px;
   // 内容区域高度
   --app-content-box-height: calc(var(--app-full-height) - 
-                                var(--app-header-height) - 
-                                var(--app-footer-height) - 
-                                40px
-                              );
-  
+                            var(--app-header-height) - 
+                            var(--app-footer-height) 
+  );
 
-  --app-content-box-padding: 20px;
-  // font
-  --app-font-label-color: #808695;
-  --app-font-size: 14px;
+  // ============================radius=================================
+  --app-radius: 4px;
+  // ============================colors=================================
+  --app-primary-color: #5672cd;
+  --app-primary-hover-bg-color: #617acc;
+  --app-success-color: #21ba45;
+  --app-warning-color: #f2711c;
+  --app-danger-color: #db2828;
+  --app-error-color: #db2828;
+  --app-info-color: #42b8dd;
+
+  --app-text-color-1: rgba(60, 60, 67);  // 标题颜色
+  --app-text-color-2: rgba(60, 60, 67, .78); // 提示颜色
+  
+  --app-bg-color-1: #fff; // 背景颜色
+  --app-bg-color-2: #f6f6f7; // 灰背景颜色
+
+  --app-border-color-1: #2e2e32;
+  --app-dark-border-color-1: #e2e2e3;
+
+  // // common
+  // --app-border-color: var(--el-border-color-light);
+  // // body
+  // --app-body-background: #f6f8f9;
+
+
+  // // panel
+  // --app-panel-color: white;
+  // --app-panel-padding: 20px;
+
+  // // header
+  // --app-header-height: 60px;
+  // --app-header-dark-background: #282c34;
+  // --app-header-dark-background-1: rgb(73, 80, 95)34;
+  
+  // // aside
+  // --app-aside-background: #282c34;
+  // --app-aside-color: var(--el-color-white);
+  // --app-aside-width: 64px;
+  
+  // // aside-menu
+  // --app-aside-menu-width: 220px;
+  // --app-aside-menu-scroll-bar-height: var(--app-full-height);
+  // --app-aside-menu-scroll-bar-color: var(--app-panel-color);
+  // --app-aside-menu-scroll-bar-padding: 10px;
+  
+  
+  // --app-padding: 10px;
+  // --app-content-box-padding: var(--app-padding);
+
+ 
+
+  // --app-content-box-padding: 10px;
+  // // font
+  // --app-font-label-color: #808695;
+  // --app-font-size: 14px;
+  // --app-font-size-1: 16px;
+  // --app-font-size-2: 18px;
+  // --app-font-size-3: 20px;
+  // --app-font-size-4: 22px;
+  // --app-font-size-5: 24px;
+
+  // // color
+  // --app-color-1: #333;
+  // --app-color-2: #fff;
+  
+  // --app-font-color: #333;
+  // --app-font-color-1: #fff; // 反白
+  // --app-aside-font-color: var(--app-font-color);
+
+  // // aside
+  // --app-aside-width: 64px;
+  // --app-aside-background: #282c34;
+  // --app-aside-item-background: var(--el-color-primary);
+  // --app-aside-item-size: 54px;
 }
 
+.app {
+  color: var(--app-text-color-1);
+}
+
+.dark {
+  --app-bg-color-1: #1b1b1f;
+  --app-bg-color-2: #575764;
+  background-color: var(--app-bg-color-1);
+  --app-text-color-1: rgb(202, 202, 219);  // 标题颜色
+  --app-text-color-2: rgba(161, 161, 177, 0.78); // 提示颜色
+  .app {
+    color: var(--app-text-color-1);
+    .label  {
+      color: var(--app-text-color-2);
+    }
+    // ============================colors=================================
+    --app-primary-color: #3e63dd;
+    --app-primary-color-light-1: #4669dc;
+    --app-primary-color-light-2: #6883de;
+    --app-primary-color-light-3: #1d347f;
+    --app-primary-hover-bg-color: #617acc;
+
+    --app-success-color: yellow;
+    --app-warning-color: rgb(222, 178, 149);
+    --app-danger-color: #da1717;
+    --app-error-color: #da1717;
+    --app-info-color: #20b0db;
+
+    --app-text-color-1: rgba(255, 255, 245, 0.86); //模式标题颜色
+    --app-text-color-2: rgba(235, 235, 245, .6); //模式标题颜色
+
+    --app-bg-color-1: #1b1b1f;
+    --app-bg-color-2: #202127;
+
+  }
+}

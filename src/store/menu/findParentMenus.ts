@@ -62,7 +62,6 @@ export function findParentMenus(
         return res
       }
     }
-    // console.log(menus)
   }
   // 处理菜单树是单个对象的情况
   else if (typeof menus === 'object') {
