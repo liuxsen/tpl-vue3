@@ -55,13 +55,7 @@ export default {
 
 <style lang="less" scoped>
 .content {
-  height: calc(
-    var(--app-content-box-height) -
-    var(--app-padding)*2 -
-    32px - // 分页高度
-    20px - // 底部padding
-    var(--app-panel-padding)*2
-    );
+  height: calc(var(--app-content-height) - 32px - var(--app-content-padding)*4)
 }
 .icon-container {
   width: 70px;

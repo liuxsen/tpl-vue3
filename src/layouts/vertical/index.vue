@@ -13,15 +13,13 @@ export default {
 <template>
   <div class="layout vertical">
     <!-- <AppAside /> -->
-    <div class="header flex flex-items-center flex-justify-between">
+    <div class="header flex flex-items-center flex-justify-between pl-10 pr-10">
       <Menu />
       <Mode />
     </div>
     <div class="content-box">
       <ElScrollbar>
-        <div class="content-box-inner">
-          <router-view />
-        </div>
+        <router-view />
       </ElScrollbar>
     </div>
     <Footer />
@@ -34,15 +32,11 @@ export default {
   .header {
     height: var(--app-header-height);
     border-bottom: 1px solid var(--app-border-color);
-    // background-color: var(--app-header-dark-background);
   }
   .content-box {
-    height: var(--app-content-box-height);
-    padding: var(--app-content-box-padding);
+    height: var(--app-content-height);
+    padding: var(--app-content-padding);
     padding-right: 0px;
-    .content-box-inner {
-      padding-right: var(--app-content-box-padding);
-    }
   }
 }
 </style>

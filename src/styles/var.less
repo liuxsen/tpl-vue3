@@ -25,7 +25,7 @@
   --app-bg-color-1: #fff; // 背景颜色
   --app-bg-color-2: #f6f6f7; // 灰背景颜色
 
-  --app-border-color-1: #2e2e32;
+  --app-border-color-1: #f0f0f0;
   --app-dark-border-color-1: #e2e2e3;
 
   // // common
@@ -39,10 +39,13 @@
   // --app-panel-padding: 20px;
 
   // // header
-  // --app-header-height: 60px;
-  // --app-header-dark-background: #282c34;
-  // --app-header-dark-background-1: rgb(73, 80, 95)34;
-  
+  --app-header-height: 60px;
+  // footer
+  --app-footer-height: 60px;
+  // content
+  --app-content-height: calc(100vh - var(--app-header-height) - var(--app-footer-height));
+  --app-content-inner-height: calc(var(--app-content-height) - var(--app-content-padding)*2);
+  --app-content-padding: 20px;
   // // aside
   // --app-aside-background: #282c34;
   // --app-aside-color: var(--el-color-white);

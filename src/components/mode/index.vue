@@ -24,11 +24,11 @@ export default {
   <el-switch v-model="mode">
     <template #active-action>
       <div class="custom-active-action">
-        ON
+        <i class="ri-moon-clear-fill" />
       </div>
     </template>
     <template #inactive-action>
-      <span class="custom-inactive-action">OFF</span>
+      <i class="ri-sun-fill" />
     </template>
   </el-switch>
 </template>
