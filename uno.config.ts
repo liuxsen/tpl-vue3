@@ -21,5 +21,8 @@ export default defineConfig({
 
     [/^hp-(\d+)$/, ([, d]) => ({ height: `${d}%` })],
     [/^wp-(\d+)$/, ([, d]) => ({ width: `${d}%` })],
+
+    [/^fs-(\d+)$/, ([, d]) => ({ 'font-size': `${d}px` })],
+
   ],
 })

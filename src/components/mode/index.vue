@@ -1,7 +1,10 @@
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia'
 import { ref, watch } from 'vue'
 
-const mode = ref(false)
+import { useAppSettings } from '~/store/appSettings'
+
+const { mode } = storeToRefs(useAppSettings())
 
 watch(mode, (v) => {
   const html = document.querySelector('html')!
@@ -23,7 +26,7 @@ export default {
 <template>
   <el-switch v-model="mode">
     <template #active-action>
-      <div class="custom-active-action">
+      <div class="dark-icon">
         <i class="ri-moon-clear-fill" />
       </div>
     </template>
@@ -32,3 +35,9 @@ export default {
     </template>
   </el-switch>
 </template>
+
+<style lang="less" scoped>
+.ri-sun-fill {
+  color: var(--app-primary-color);
+}
+</style>

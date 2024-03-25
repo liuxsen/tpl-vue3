@@ -12,23 +12,18 @@ export default {
 </script>
 
 <template>
-  <div class="box">
-    <el-space>
-      <i class="ri-menu-unfold-line" />
-      <el-breadcrumb separator="/" class="bread-crumb-box">
-        <el-breadcrumb-item v-for="(breadItem) in breadList" :key="breadItem.id" :to="{ path: breadItem.path }">
-          {{ breadItem.title }}
-        </el-breadcrumb-item>
-      </el-breadcrumb>
-    </el-space>
+  <div class="box hp-100">
+    <el-breadcrumb separator="/" class="bread-crumb-box">
+      <el-breadcrumb-item v-for="(breadItem) in breadList" :key="breadItem.id" :to="{ path: breadItem.path }">
+        {{ breadItem.title }}
+      </el-breadcrumb-item>
+    </el-breadcrumb>
   </div>
 </template>
 
 <style lang="less" scoped>
-.bread-crumb-box {
-  line-height: var(--app-header-height);
-}
 .box {
-  padding-left: var(--app-padding);
+  display: flex;
+  align-items: center;
 }
 </style>

@@ -44,7 +44,7 @@ export default {
   width: 45px;
   height: 45px;
   background-color: var(--el-color-primary);
-  color: var(--app-font-color-1);
+  color: var(--app-text-color-light-1);
   line-height: 45px;
   text-align: center;
   border-radius: var(--app-radius);

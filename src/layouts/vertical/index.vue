@@ -13,7 +13,7 @@ export default {
 <template>
   <div class="layout vertical">
     <!-- <AppAside /> -->
-    <div class="header flex flex-items-center flex-justify-between pl-10 pr-10">
+    <div class="header flex flex-items-center border-bottom flex-justify-between pl-10 pr-10">
       <Menu />
       <Mode />
     </div>
@@ -31,7 +31,6 @@ export default {
   height: var(--app-full-height);
   .header {
     height: var(--app-header-height);
-    border-bottom: 1px solid var(--app-border-color);
   }
   .content-box {
     height: var(--app-content-height);

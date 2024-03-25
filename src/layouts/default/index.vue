@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
+import { storeToRefs } from 'pinia'
 import Footer from '~/layouts/components/Footer.vue'
 import Aside from '~/layouts/components/Aside.vue'
 import Menu from '~/layouts/components/Menu.vue'
+import Mode from '~/components/mode/index.vue'
+import { useAppSettings } from '~/store/appSettings'
+import Icon from '~/components/Icon/icon.vue'
+
+const { shrinkMenu } = storeToRefs(useAppSettings())
 
 const BreadCrumb = defineAsyncComponent(() => import('~/layouts/components/BreadCrumb/index.vue'))
 </script>
@@ -10,70 +16,46 @@ const BreadCrumb = defineAsyncComponent(() => import('~/layouts/components/Bread
 <template>
   <div class="layout default flex">
     <div class="flex left">
-      <el-scrollbar class="full-h aside-box">
+      <el-scrollbar class="full-h w-86 border-right">
         <Aside />
       </el-scrollbar>
-      <el-scrollbar class="full-h menu-left">
+      <el-scrollbar class="full-h menu-box border-right" :class="[shrinkMenu ? 'off' : '']">
         <Menu />
       </el-scrollbar>
     </div>
-    <div class="right">
-      <div class="header">
-        <BreadCrumb />
+    <div class="right flex-1">
+      <div class="header pl-10 pr-10 border-bottom flex flex-middle flex-between">
+        <el-space>
+          <Icon class-name="ri-menu-unfold-line cs-pt fs-16" :class="[shrinkMenu ? '' : 'rotate-180']" @click="shrinkMenu = !shrinkMenu" />
+          <BreadCrumb />
+        </el-space>
+        <Mode />
       </div>
       <el-scrollbar class="content">
         <router-view />
       </el-scrollbar>
       <Footer />
     </div>
-
-    <!-- <ElContainer>
-      <AppAside />
-      <ElContainer>
-        <ElHeader class="header">
-          <BreadCrumb v-if="showBread" />
-        </ElHeader>
-        <el-main class="content-box">
-          <ElScrollbar>
-            <div class="content-box-inner">
-              <router-view />
-            </div>
-          </ElScrollbar>
-        </el-main>
-        <Footer />
-      </ElContainer>
-    </ElContainer> -->
   </div>
 </template>
 
 <style lang="less" scoped>
 .layout.default {
-  height: var(--app-full-height);
-  background-color: var(--app-body-background);
-  .left, .right, .full-h {
-    height: var(--app-full-height);
-  }
-  .full-h {
-    background-color: var(--app-panel-color);
-  }
-  .aside-box {
-    background-color: var(--app-aside-background);
-    color: var(--app-);
-  }
-  .right {
-    flex: 1;
+  .content {
+    height: var(--app-content-height);
+    padding: var(--app-content-padding);
+    padding-right: 0;
   }
   .header {
     height: var(--app-header-height);
-    border-bottom: 1px solid var(--app-border-color);
-    background-color: var(--app-panel-color);
   }
-  .content {
-    height: var(--app-content-box-height);
-    padding: var(--app-content-box-padding);
-  }
-  .menu-left {
-    border-right: 1px solid var(--app-border-color);
+  .menu-box {
+    width: 200px;
+    transition: all ease .3s;
+    &.off {
+      width: 0;
+      border: 0;
+    }
   }
 }
 </style>

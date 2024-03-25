@@ -32,7 +32,7 @@ export default {
       @click="onChangeTopMenu(item)"
     >
       <i :class="item.icon" />
-      <div>
+      <div class="text">
         {{ item.title }}
       </div>
     </div>
@@ -42,18 +42,23 @@ export default {
 <style lang="less" scope>
 .aside-left {
   width: var(--app-aside-width);
+  font-size: var(--app-font-size-3);
   color: var(--app-aside-font-color);
   text-align: center;
   .item  {
-    width: var(--app-aside-item-size);
-    height: var(--app-aside-item-size);
+    .text {
+      font-size: var(--app-font-size);
+    }
+    width: 54px;
+    height: 54px;
     border-radius: var(--app-radius);
     margin: 10px auto;
     padding-top: 5px;
     transition: all ease .2s;
     cursor: pointer;
     &.ative {
-      background-color: var(--app-aside-item-background);
+      background-color: var(--app-primary-color);
+      color: var(--app-text-color-light-1);
     }
   }
 }

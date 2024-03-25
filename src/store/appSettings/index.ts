@@ -9,28 +9,38 @@ export interface Settings {
   'horizontal' | // 横向
   'normal' | // 常规
   'float' // 浮动
+  mode: 'light' | 'dark'
+  shrinkMenu: boolean // 是否缩小菜单
+}
+export interface SettingItem {
+  val: 'vertical' | 'column'
+  label: string
+  menuMode: 'horizontal' | 'vertical'
 }
 
-const settings = [
-  { val: 'column', label: '分栏' },
-  { val: 'complex', label: '综合' },
-  { val: 'vertical', label: '纵向' },
-  { val: 'horizontal', label: '横向' },
-  { val: 'normal', label: '常规' },
-  { val: 'float', label: '浮动' },
+const settings: SettingItem[] = [
+  { val: 'vertical', label: '纵向', menuMode: 'horizontal' },
+  { val: 'column', label: '分栏', menuMode: 'vertical' },
+  // { val: 'complex', label: '综合' },
+  // { val: 'horizontal', label: '横向' },
+  // { val: 'normal', label: '常规' },
+  // { val: 'float', label: '浮动' },
 ]
 
 // 系统配置
 export const useAppSettings = defineStore('useAppSettings', () => {
   const settingsInfo = reactive<Settings>({
-    layout: 'vertical',
+    layout: 'column',
+    mode: 'light',
+    shrinkMenu: false,
   })
   const themeList = ref(settings)
   const menuStore = useMenuStore()
   watch(settingsInfo, ({ layout }) => {
-    if (layout === 'vertical') {
-      menuStore.setMode('horizontal')
-    }
+    const layoutInfo = settings.find((item) => {
+      return item.val === layout
+    })
+    layoutInfo && menuStore.setMode(layoutInfo.menuMode)
   }, {
     immediate: true,
   })
