@@ -9,7 +9,7 @@ withDefaults(defineProps<Props>(), {
 
 <script lang="ts">
 export default {
-  name: 'Icon',
+  name: 'VIcon',
 }
 </script>
 

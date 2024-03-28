@@ -6,7 +6,7 @@ import Aside from '~/layouts/components/Aside.vue'
 import Menu from '~/layouts/components/Menu.vue'
 import Mode from '~/components/mode/index.vue'
 import { useAppSettings } from '~/store/appSettings'
-import Icon from '~/components/Icon/icon.vue'
+import Icon from '~/components/Icon/index.vue'
 
 const { shrinkMenu } = storeToRefs(useAppSettings())
 
@@ -32,7 +32,9 @@ const BreadCrumb = defineAsyncComponent(() => import('~/layouts/components/Bread
         <Mode />
       </div>
       <el-scrollbar class="content">
-        <router-view />
+        <div class="pr-20 content-inner">
+          <router-view />
+        </div>
       </el-scrollbar>
       <Footer />
     </div>
@@ -45,6 +47,9 @@ const BreadCrumb = defineAsyncComponent(() => import('~/layouts/components/Bread
     height: var(--app-content-height);
     padding: var(--app-content-padding);
     padding-right: 0;
+  }
+  .content-inner{
+    height: var(--app-content-inner-height);
   }
   .header {
     height: var(--app-header-height);

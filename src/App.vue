@@ -9,6 +9,9 @@ const { layout } = storeToRefs(useAppSettings())
 const LayoutDefault = defineAsyncComponent(() =>
   import('~layouts/default/index.vue'),
 )
+const ElConfig = defineAsyncComponent(() =>
+  import('~/plugins/element-ui/config.vue'),
+)
 const LayoutVertical = defineAsyncComponent(() =>
   import('~layouts/vertical/index.vue'),
 )
@@ -26,9 +29,11 @@ const Component = computed(() => {
 
 <template>
   <Suspense>
-    <div :class="layout">
-      <component :is="Component" />
-      <LayoutSettings />
-    </div>
+    <ElConfig>
+      <div :class="layout">
+        <component :is="Component" />
+        <LayoutSettings />
+      </div>
+    </ElConfig>
   </Suspense>
 </template>

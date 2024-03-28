@@ -59,6 +59,7 @@ module.exports = {
   dev: {
     server: {
       host: true,
+      publicDir: 'public',
       proxy: {
         '/api': {
           target: 'http://jsonplaceholder.typicode.com',

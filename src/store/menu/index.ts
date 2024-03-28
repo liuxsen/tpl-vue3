@@ -79,6 +79,12 @@ export const useMenuStore = defineStore('useMenuStore', () => {
           title: '用户列表',
           path: '/bsn/user/list',
         },
+        {
+          id: '12',
+          icon: 'ri-user-3-line',
+          title: '表格组件',
+          path: '/bsn/order/list',
+        },
       ],
     },
   ],

@@ -52,5 +52,6 @@ export default {
   border-bottom-right-radius: 0;
   cursor: pointer;
   font-size: var(--app-font-size-5);
+  z-index: 100;
 }
 </style>

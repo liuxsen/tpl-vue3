@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { ref, watch } from 'vue'
+import { watch } from 'vue'
 
 import { useAppSettings } from '~/store/appSettings'
 
