@@ -2,7 +2,7 @@
 import type { CommonProps } from '~/types/type'
 
 export type Props = {
-  modelValue: string | number
+  modelValue?: string | number
 } & CommonProps
 
 withDefaults(defineProps<Props>(), {
@@ -21,6 +21,6 @@ export default {
     <span>{{ modelValue }}</span>
   </template>
   <template v-else>
-    <el-input v-bind="$attrs" />
+    <el-input v-bind="$attrs" :modelValue="modelValue" />
   </template>
 </template>

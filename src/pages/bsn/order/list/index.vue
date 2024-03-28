@@ -27,10 +27,28 @@ const columns = ref<Column[]>([
     formItemProps: { value: 'bbb', className: 'ri-add-box-line' },
   },
   {
-    title: '搜索',
+    title: '日期',
     dataIndex: 'time',
     valueType: 'date',
-    formItemProps: { value: new Date() },
+    formItemProps: { value: '2024-02-11 22:22:22' },
+  },
+  {
+    title: '日期间隔',
+    dataIndex: 'aaaaa',
+    valueType: 'date',
+    formItemProps: { format: 'YYYY-MM', valueFormat: 'YYYY-MM-DD HH:mm', type: 'daterange' },
+  },
+  {
+    title: '日期时间',
+    dataIndex: 'baaa',
+    valueType: 'date',
+    formItemProps: { format: 'YYYY-MM-DD HH:mm', valueFormat: 'YYYY-MM-DD', type: 'datetime' },
+  },
+  {
+    title: '日期时间段',
+    dataIndex: 'baaac',
+    valueType: 'date',
+    formItemProps: { format: 'YYYY-MM-DD HH:mm:ss', valueFormat: 'YYYY-MM-DD HH:mm:ss', type: 'datetimerange' },
   },
   { title: '都有', dataIndex: 'text', valueType: 'input', formItemProps: { value: 'aaa' } },
 ])
@@ -39,20 +57,22 @@ interface OrderItem {
   name: string
   time: Date
   text: string
+  baaac: string[]
 }
 
 function onRequest(info: FormInfo): Promise<DataBody<OrderItem>> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
-        data: [
-          {
+        data: Array.from({ length: 1000 }).fill('').map(() => {
+          return {
             id: 1,
             name: 'aa',
             time: new Date(),
             text: '22',
-          },
-        ],
+            baaac: ['2024-02-11 22:22:22', '2024-02-11 22:22:22'],
+          }
+        }),
         total: 1,
       })
     }, 300)

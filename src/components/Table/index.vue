@@ -8,6 +8,7 @@ export interface Props<T extends DataBodyItem> {
   autoHeight?: boolean
   columns?: Column[]
   immediate?: boolean
+  triggerOnChange?: boolean // 当搜索条件变化，是否触发搜索
   // request: <T>(formInfo: FormInfo) => Promise<DataBody<T>>
   request: DataRequest<T>
 }
@@ -15,6 +16,7 @@ export interface Props<T extends DataBodyItem> {
 const props = withDefaults(defineProps<Props<T>>(), {
   autoHeight: true,
   immediate: true,
+  triggerOnChange: true,
 })
 const { columns } = toRefs(props)
 const formColumns = computed(() => {
@@ -36,9 +38,11 @@ const pageInfo = ref<PageInfo>({
 function handleSizeChange(size: number) {
   pageInfo.value.currentPage = 1
   pageInfo.value.pageSize = size
+  onSearch()
 }
 function handleCurrentChange(pn: number) {
   pageInfo.value.currentPage = pn
+  onSearch()
 }
 function setColumnFormValue(value: any, column: Column) {
   column.formItemProps = {
@@ -86,6 +90,13 @@ function onReset() {
   onSearch()
 }
 
+function onChange() {
+  if (props.triggerOnChange) {
+    pageInfo.value.pageSize = 1
+    onSearch()
+  }
+}
+
 defineExpose({
   trigerSearch: onSearch,
 })
@@ -107,7 +118,10 @@ export default {
               :name="column.valueType"
               :modelValue="column.formItemProps.value"
               mode="edit"
+              v-bind="column.formItemProps"
+              clearable
               @update:modelValue="val => setColumnFormValue(val, column)"
+              @change="onChange"
             />
           </el-form-item>
           <el-form-item>
@@ -125,7 +139,7 @@ export default {
       <vxe-table
         :loading="loading"
         :auto-resize="true"
-        :resize-config="{ refreshDelay: 0 }"
+        :resize-config="{ refreshDelay: 33 }"
         :column-config="{ resizable: true, minWidth: '120' }"
         class="vxe-table-box"
         :data="dataList"
@@ -166,11 +180,10 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: var(--app-content-inner-height);
+  height: calc(var(--app-content-inner-height));
   .vxe-table-box-inner {
+    height: 0;
     flex: 1;
-  //   // height: calc(var(--app-content-inner-height) - var(--app-pagination-height));
-
   }
   .form-box {
     .el-form {

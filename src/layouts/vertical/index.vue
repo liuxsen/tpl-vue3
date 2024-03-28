@@ -17,25 +17,28 @@ export default {
       <Menu />
       <Mode />
     </div>
-    <div class="content-box">
-      <ElScrollbar>
+    <el-scrollbar class="content">
+      <div class="pr-20 content-inner">
         <router-view />
-      </ElScrollbar>
-    </div>
+      </div>
+    </el-scrollbar>
     <Footer />
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 .layout.vertical {
   height: var(--app-full-height);
   .header {
     height: var(--app-header-height);
   }
-  .content-box {
+  .content {
     height: var(--app-content-height);
     padding: var(--app-content-padding);
-    padding-right: 0px;
+    padding-right: 0;
+  }
+  .content-inner{
+    height: var(--app-content-inner-height);
   }
 }
 </style>
